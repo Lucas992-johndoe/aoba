@@ -1,0 +1,148 @@
+* {
+  box-sizing: border-box;
+}
+
+body, html {
+  height: 100%;
+  margin: 0;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #fff0f6;
+  overflow: hidden;
+  user-select: none;
+}
+
+.container {
+  text-align: center;
+}
+
+h1 {
+  font-size: 4rem;
+  color: #d6336c;
+  margin-bottom: 30px;
+}
+
+.buttons {
+  position: relative;
+  display: inline-block;
+}
+
+.buttons button {
+  font-size: 1.8rem;
+  padding: 15px 40px;
+  margin: 0 20px;
+  border: none;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  position: relative;
+  user-select: none;
+}
+
+#btn-sim {
+  background-color: green;
+  color: white;
+}
+
+#btn-sim:hover {
+  background-color: #a82b53;
+}
+
+#btn-nao {
+  background-color: red;
+  color: white;
+}
+
+#btn-nao:hover {
+  background-color: #888;
+}
+
+#mensagem {
+  margin-top: 40px;
+  font-size: 2rem;
+  color: #d6336c;
+  font-weight: bold;
+}
+
+/* Container dos corações e emojis */
+#coracoes-container {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  pointer-events: none;
+  overflow: visible;
+  z-index: 1000;
+}
+
+.coracao {
+  position: absolute;
+  font-size: 24px;
+  user-select: none;
+  animation: subir 3s linear forwards;
+  filter: drop-shadow(0 0 2px #d6336c);
+}
+
+.coracao.fire {
+  color: #ff4500;
+  filter: drop-shadow(0 0 4px #ff6f00);
+}
+
+.coracao.kiss {
+  color: #ff69b4;
+  filter: drop-shadow(0 0 4px #ff1493);
+}
+
+@keyframes subir {
+  0% {
+    transform: translateY(0) scale(1);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(-120vh) scale(1.5);
+    opacity: 0;
+  }
+}
+
+/* Mensagens provocantes fixas no topo da página */
+.provocacao-msg {
+  position: fixed;
+  top: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+  color: #d6336c;
+  font-weight: bold;
+  font-size: 1.2rem;
+  pointer-events: none;
+  user-select: none;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  background: rgba(255, 240, 246, 0.9);
+  padding: 6px 12px;
+  border-radius: 12px;
+  box-shadow: 0 0 8px #d6336c99;
+  max-width: 90vw;
+  white-space: nowrap;
+  z-index: 2000;
+}
+
+.provocacao-msg.show {
+  opacity: 1;
+}
+
+.img-de-fundo {
+  position: absolute;
+  width: 300px;
+  opacity: 0.8;
+  z-index: 0; /* Fica atrás de tudo */
+  pointer-events: none; /* Não bloqueia cliques */
+  animation: flutuar 6s infinite ease-in-out alternate;
+}
+
+@keyframes flutuar {
+  0% { transform: translateY(0) rotate(0deg); }
+  100% { transform: translateY(-20px) rotate(5deg); }
+}
